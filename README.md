@@ -12,7 +12,7 @@ Conteúdo da Disciplina: Grafos<br>
 
 ## Sobre
 
-Descreva os objetivos do seu projeto e como ele funciona.
+Este projeto tem como objetivo organizar disciplinas com base em seus pré-requisitos, gerando uma ordem válida para cursá-las ou estudá-las.
 
 ## Screenshots
 
@@ -20,9 +20,11 @@ Adicione 3 ou mais screenshots do projeto em funcionamento.
 
 ## Instalação
 
-Linguagem: xxxxxx<br>
+Linguagem: Python 3<br>
 Framework: (caso exista)<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+Pré-requisitos:
+
+- Ter o Python 3 instalado
 
 ## Uso
 
