@@ -8,7 +8,7 @@ Conteúdo da Disciplina: Grafos<br>
 | Matrícula  | Aluno                   |
 | ---------- | ----------------------- |
 | 22/2024837 | Guilherme Costa Zanella |
-| 22/2014410 | Pablo Cunha de Jesus    |
+| 22/2014910 | Pablo Cunha de Jesus    |
 
 ## Sobre
 
