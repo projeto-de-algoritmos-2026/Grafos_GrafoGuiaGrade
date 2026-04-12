@@ -10,6 +10,7 @@ pre_requisitos = [
     ("APC","EDA 1"),
     ("EDA 1","P.A"),
     ("EDA 1","EDA 2"),
+    # ("EDA 2", "APC") teste de ciclo
 ]
 
 for pre_requisito, materia in pre_requisitos:

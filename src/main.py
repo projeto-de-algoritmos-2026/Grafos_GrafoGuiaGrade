@@ -30,3 +30,31 @@ def dfs_visit(grafo, materia, visitados, arvore):
 ordem_visitados, arvore_dfs = dfs(grafo_pre_requisitos)
 print("ordem de visitação dfs", ordem_visitados)
 print("arvore dfs", arvore_dfs)
+
+def detectar_ciclo(grafo):
+    estados = {}
+    for materia in grafo:
+        estados[materia] = "não visitado"
+    # print("estado inicial: ",estados)
+    for materia in grafo:
+        if estados[materia] == "não visitado":
+            if detectar_ciclo_visit(grafo,materia,estados):
+                return True
+    # print("estado final: ",estados)
+    return False
+
+def detectar_ciclo_visit(grafo,materia,estados):
+    estados[materia] = "visitando"
+    # print(f"estado no loop na materia {materia}: {estados}")
+    for vizinho in grafo[materia]:
+        if estados[vizinho] == "visitando":
+            return True
+        if estados[vizinho] == "não visitado":
+            if detectar_ciclo_visit(grafo,vizinho,estados):
+                return True
+        # print(f"estado no loop no vizinho {vizinho}: {estados}")
+    estados[materia] = "visitado"
+    return False
+
+tem_ciclo = detectar_ciclo(grafo_pre_requisitos)
+print(tem_ciclo)
