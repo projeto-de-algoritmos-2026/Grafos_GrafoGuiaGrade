@@ -35,24 +35,24 @@ def detectar_ciclo(grafo):
     estados = {}
     for materia in grafo:
         estados[materia] = "não visitado"
-    # print("estado inicial: ",estados)
+    
     for materia in grafo:
         if estados[materia] == "não visitado":
             if detectar_ciclo_visit(grafo,materia,estados):
                 return True
-    # print("estado final: ",estados)
+    
     return False
 
 def detectar_ciclo_visit(grafo,materia,estados):
     estados[materia] = "visitando"
-    # print(f"estado no loop na materia {materia}: {estados}")
+    
     for vizinho in grafo[materia]:
         if estados[vizinho] == "visitando":
             return True
         if estados[vizinho] == "não visitado":
             if detectar_ciclo_visit(grafo,vizinho,estados):
                 return True
-        # print(f"estado no loop no vizinho {vizinho}: {estados}")
+        
     estados[materia] = "visitado"
     return False
 
@@ -94,19 +94,16 @@ def mostrar_arvore_pre_requisitos(materia, grafo, nivel=0):
     prefixo = "    " * nivel + "|-- " if nivel > 0 else ""
     print(f"{prefixo}{materia}")
     
-    # Encontra quem é pré-requisito direto
     for disciplina, sucessores in grafo.items():
         if materia in sucessores:
             mostrar_arvore_pre_requisitos(disciplina, grafo, nivel + 1)
 
-# Teste Visual
+
 print("\nESTRUTURA HIERÁRQUICA DE DEPENDÊNCIAS:")
 mostrar_arvore_pre_requisitos("MDS", grafo_pre_requisitos)
 
 def obter_scc(grafo):
     """Implementa o Algoritmo de Kosaraju para encontrar SCCs."""
-    # Passo 1: Obter a ordem de finalização (usando sua lógica de ordenação topológica)
-    # Aqui, mesmo com ciclo, precisamos da ordem de término da DFS
     visitados = set()
     pilha = []
 
@@ -121,10 +118,8 @@ def obter_scc(grafo):
         if disciplina not in visitados:
             preencher_pilha(disciplina)
 
-    # Passo 2: Transpor o grafo
+    
     grafo_t = transpor_grafo(grafo)
-
-    # Passo 3: DFS no grafo transposto seguindo a pilha invertida
     visitados.clear()
     sccs = []
 
@@ -145,51 +140,7 @@ def obter_scc(grafo):
     return sccs
 
     
-
-# --- Testando no seu fluxo ---
-#print("\n--- Componentes Fortemente Conectados (SCC) ---")
-#sccs = obter_scc(grafo_pre_requisitos)
-#for i, scc in enumerate(sccs):
-#    print(f"SCC {i+1}: {scc}")
-
-
-# def ordenacao_topologica_kahn(grafo, pre_requisitos):
-#     grau_entrada = {disciplina: 0 for disciplina in grafo}
-
-#     for pre_requisito, materia in pre_requisitos:
-#         grau_entrada[materia] += 1
-
-#     print("Graus iniciais:", grau_entrada)
-
-#     fila = [materia for materia in grau_entrada if grau_entrada[materia] == 0]
-#     print("Fila inicial:", fila)
-
-#     ordem = []
-
-#     while fila:
-#         atual = fila.pop(0)
-#         print(f"\nProcessando: {atual}")
-
-#         ordem.append(atual)
-
-#         for vizinho in grafo[atual]:
-#             grau_entrada[vizinho] -= 1
-#             print(f"Atualizando {vizinho}: grau = {grau_entrada[vizinho]}")
-
-#             if grau_entrada[vizinho] == 0:
-#                 print(f"{vizinho} entrou na fila")
-#                 fila.append(vizinho)
-
-#     print("\nOrdem final:", ordem)
-
-#     if len(ordem) != len(grafo):
-#         raise Exception("Ciclo detectado!")
-
-#     return ordem
-
-# print(ordenacao_topologica_kahn(grafo_pre_requisitos, pre_requisitos))
 if __name__ == "__main__":
-    # ... (seus prints de teste)
     
     print("\nAbrindo interface gráfica...")
     from interface import abrir_interface
