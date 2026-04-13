@@ -80,6 +80,61 @@ def ordenacao_topologica_visit(grafo, materia, visitados, ordem):
 ordem_topologica = ordenacao_topologica(grafo_pre_requisitos)
 print(ordem_topologica)
 
+def transpor_grafo(grafo):
+    """Inverte a direção de todas as arestas do grafo."""
+    grafo_transposto = {disciplina: [] for disciplina in grafo}
+    for u in grafo:
+        for v in grafo[u]:
+            grafo_transposto[v].append(u)
+    return grafo_transposto
+
+def obter_scc(grafo):
+    """Implementa o Algoritmo de Kosaraju para encontrar SCCs."""
+    # Passo 1: Obter a ordem de finalização (usando sua lógica de ordenação topológica)
+    # Aqui, mesmo com ciclo, precisamos da ordem de término da DFS
+    visitados = set()
+    pilha = []
+
+    def preencher_pilha(u):
+        visitados.add(u)
+        for v in grafo[u]:
+            if v not in visitados:
+                preencher_pilha(v)
+        pilha.append(u)
+
+    for disciplina in grafo:
+        if disciplina not in visitados:
+            preencher_pilha(disciplina)
+
+    # Passo 2: Transpor o grafo
+    grafo_t = transpor_grafo(grafo)
+
+    # Passo 3: DFS no grafo transposto seguindo a pilha invertida
+    visitados.clear()
+    sccs = []
+
+    def dfs_scc(u, componente):
+        visitados.add(u)
+        componente.append(u)
+        for v in grafo_t[u]:
+            if v not in visitados:
+                dfs_scc(v, componente)
+
+    while pilha:
+        u = pilha.pop()
+        if u not in visitados:
+            componente_atual = []
+            dfs_scc(u, componente_atual)
+            sccs.append(componente_atual)
+    
+    return sccs
+
+# --- Testando no seu fluxo ---
+print("\n--- Componentes Fortemente Conectados (SCC) ---")
+sccs = obter_scc(grafo_pre_requisitos)
+for i, scc in enumerate(sccs):
+    print(f"SCC {i+1}: {scc}")
+
 
 # def ordenacao_topologica_kahn(grafo, pre_requisitos):
 #     grau_entrada = {disciplina: 0 for disciplina in grafo}
