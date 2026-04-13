@@ -22,13 +22,20 @@ Adicione 3 ou mais screenshots do projeto em funcionamento.
 
 Linguagem: Python 3<br>
 Framework: (caso exista)<br>
-Pré-requisitos:
+Pré-requisitos: 
 
-- Ter o Python 3 instalado
+* [Python 3.13+](https://www.python.org/)
+* [Tkinter](https://docs.python.org/3/library/tkinter.html) (Interface Gráfica)
 
 ## Uso
 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
+Tela Principal: Ao abrir o programa, você verá uma lista com todas as disciplinas do curso de Engenharia de Software.
+
+Seleção: Clique sobre o nome de uma disciplina (ex: MDS ou PAA).
+
+Gerar Árvore: Clique no botão "GERAR ÁRVORE".
+
+Resultado: O painel inferior exibirá toda a linhagem de pré-requisitos necessários para chegar até a matéria selecionada, formatado em uma estrutura de árvore hierárquica.
 
 ## Outros
 
