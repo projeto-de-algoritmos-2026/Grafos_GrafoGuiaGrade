@@ -71,17 +71,17 @@ pre_requisitos = [
 
 for pre_requisito, materia in pre_requisitos:
     if pre_requisito not in disciplinas:
-        raise Exception(f"Pré-requisito inválido: {pre_requisito}, verificar disciplinas")
+        raise Exception(f"Erro: {pre_requisito} não está na lista de disciplinas.")
     if materia not in disciplinas:
-        raise Exception(f"Matéria inválida: {materia}, verificar discplinas")
+        raise Exception(f"Erro: {materia} não está na lista de disciplinas.")
                 
 
 def imprimeDados():
-    print("Disciplinas")
-    for disciplina in disciplinas:
-        print("-",disciplina)
-    print("\nPré Requisitos")
-    for pre_requisito, materia in pre_requisitos:
-        print(f"{pre_requisito} é pré-requisito de {materia} ")
+    print(f"Total de Disciplinas: {len(disciplinas)}")
+    print(f"Total de Dependências: {len(pre_requisitos)}")
+    print("\n--- Relações de Pré-Requisito ---")
+    for pre, mat in pre_requisitos:
+        print(f"[{pre}] -> [{mat}]")
+
 if __name__ == "__main__":
     imprimeDados()

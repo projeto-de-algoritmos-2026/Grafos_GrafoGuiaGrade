@@ -88,6 +88,23 @@ def transpor_grafo(grafo):
             grafo_transposto[v].append(u)
     return grafo_transposto
 
+def buscar_todos_pre_requisitos(materia_alvo, grafo, visitados=None):
+        if visitados is None: # Agora está indentado corretamente
+            visitados = set()
+    
+        pre_requisitos_encontrados = set()
+    
+        for disciplina, sucessores in grafo.items():
+            if materia_alvo in sucessores:
+                pre_requisitos_encontrados.add(disciplina)
+                if disciplina not in visitados:
+                    visitados.add(disciplina)
+                    ancestrais = buscar_todos_pre_requisitos(disciplina, grafo, visitados)
+                    pre_requisitos_encontrados.update(ancestrais)
+                
+        return pre_requisitos_encontrados
+
+
 def obter_scc(grafo):
     """Implementa o Algoritmo de Kosaraju para encontrar SCCs."""
     # Passo 1: Obter a ordem de finalização (usando sua lógica de ordenação topológica)
@@ -129,11 +146,28 @@ def obter_scc(grafo):
     
     return sccs
 
+    
+# --- ESPAÇO PARA TESTE ---
+print("\n" + "="*30)
+print("TESTE DE PRÉ-REQUISITOS TOTAIS")
+print("="*30)
+
+# Teste com uma matéria do meio do curso
+alvo = "MDS" 
+resultado = buscar_todos_pre_requisitos(alvo, grafo_pre_requisitos)
+
+print(f"Para chegar em {alvo}, você precisa ter cursado:")
+if resultado:
+    for r in sorted(resultado): # Sorted apenas para ficar organizado
+        print(f" -> {r}")
+else:
+    print(" Nenhuma (Matéria de primeiro semestre ou sem dependências).")
+
 # --- Testando no seu fluxo ---
-print("\n--- Componentes Fortemente Conectados (SCC) ---")
-sccs = obter_scc(grafo_pre_requisitos)
-for i, scc in enumerate(sccs):
-    print(f"SCC {i+1}: {scc}")
+#print("\n--- Componentes Fortemente Conectados (SCC) ---")
+#sccs = obter_scc(grafo_pre_requisitos)
+#for i, scc in enumerate(sccs):
+#    print(f"SCC {i+1}: {scc}")
 
 
 # def ordenacao_topologica_kahn(grafo, pre_requisitos):
@@ -171,3 +205,4 @@ for i, scc in enumerate(sccs):
 #     return ordem
 
 # print(ordenacao_topologica_kahn(grafo_pre_requisitos, pre_requisitos))
+
