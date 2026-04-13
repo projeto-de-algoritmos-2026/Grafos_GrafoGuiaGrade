@@ -1,9 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
 
-import tkinter as tk
-from tkinter import messagebox
-
 
 def buscar_todos_pre_requisitos(materia_alvo, grafo, visitados=None):
     if visitados is None:
