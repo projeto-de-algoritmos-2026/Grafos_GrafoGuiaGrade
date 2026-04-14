@@ -16,16 +16,20 @@ Este projeto tem como objetivo organizar disciplinas com base em seus pré-requi
 
 ## Screenshots
 
+![Tela Inicial Imagem](imgs/tela-inicial.jpeg)
+![Pre Requisitos Imagem](imgs/pre-requisitos.jpeg)
+![Impacto Reprovação Imagem](imgs/impacto-reprovacao.jpeg)
+
 Adicione 3 ou mais screenshots do projeto em funcionamento.
 
 ## Instalação
 
 Linguagem: Python 3<br>
 Framework: (caso exista)<br>
-Pré-requisitos: 
+Pré-requisitos:
 
-* [Python 3.13+](https://www.python.org/)
-* [Tkinter](https://docs.python.org/3/library/tkinter.html) (Interface Gráfica)
+- [Python 3.13+](https://www.python.org/)
+- [Tkinter](https://docs.python.org/3/library/tkinter.html) (Interface Gráfica)
 
 ## Uso
 
