@@ -22,6 +22,7 @@ disciplinas = [
 pre_requisitos = [
     # 1º -> 2º Semestre
     ("Cálculo 1", "Cálculo 2"),
+    ("Cálculo 1", "Probabilidade e Estatística"),
     ("APC", "Desenvolvimento de Software"),
     
     # 2º -> 3º Semestre
@@ -31,39 +32,43 @@ pre_requisitos = [
     ("APC", "OO"),
     
     # 3º -> 4º Semestre
-    ("TED 1", "FAC"),
+    ("Engenharia Econômica", "Gestão de Produção e Qualidade"),
     ("OO", "MDS"),
-    ("OO", "Paradigmas de Programação"),
-    ("MD 1", "MD 2"),
     ("APC", "EDA 1"),
+    ("TED 1", "FAC"),
     ("PED 1", "FAC"),
+    ("MD 1", "MD 2"),
     
     # 4º -> 5º Semestre
+    ("MDS", "IHC"),
     ("MDS", "Requisitos"),
+    ("EDA 1", "Compiladores 1"),
+    ("FAC", "FSO"),
     ("MD 2", "SBD 1"),
     ("EDA 1", "EDA 2"),
-    ("FAC", "FSO"),
-    ("MD 2", "Compiladores 1"),
-    ("MDS", "IHC"),
     
     # 5º -> 6º Semestre
     ("Requisitos", "ADS"),
-    ("Requisitos", "Qualidade de Software 1"),
+    ("IHC", "Qualidade de Software 1"),
+    ("Gestão de Produção e Qualidade", "Qualidade de Software 1"),
+    ("Requisitos" ,"Testes de Software"),
+    ("MDS" ,"Testes de Software"),
     ("SBD 1", "SBD 2"),
     ("FSO", "Redes"),
     ("EDA 1", "PAA"),
-    ("Cálculo 1", "PAA"),
     
     # 6º -> 7º Semestre
-    ("Qualidade de Software 1", "TPPE"),
+    ("Testes de Software", "TPPE"),
     ("ADS", "TPPE"),
-    ("PAA", "Paradigmas de Programação"),
+    ("OO", "Paradigmas de Programação"),
+    ("Compiladores", "Paradigmas de Programação"),
     ("FSO", "FSE"),
     ("Redes", "Programação Paralela e Distribuída"),
+    ("EDA 2", "Programação Paralela e Distribuída"),
     
     # 7º -> 8º Semestre
     ("TPPE", "Engenharia de Produto"),
-    ("TPPE", "GCES"),
+    ("Testes de Software", "GCES"),
     
     # TCCs e Projetos Integradores
     ("PI 1", "PI 2"),
