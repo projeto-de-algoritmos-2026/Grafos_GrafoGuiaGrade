@@ -22,11 +22,11 @@ Este projeto tem como objetivo organizar disciplinas com base em seus pré-requi
 
 ### Pre Requisitos
 
-![Pre Requisitos Imagem](imgs/pre-requisitos.jpeg)
+![Pre Requisitos Imagem](imgs/pre-requisitos.png)
 
 ### Impacto Reprovação
 
-![Impacto Reprovação Imagem](imgs/impacto-reprovacao.jpeg)
+![Impacto Reprovação Imagem](imgs/impacto-reprovacao.png)
 
 ## Instalação
 
