@@ -39,7 +39,7 @@ pre_requisitos = [
     
     # 4º -> 5º Semestre
     ("MDS", "Requisitos"),
-    ("EDA 1", "SBD 1"),
+    ("MD 2", "SBD 1"),
     ("EDA 1", "EDA 2"),
     ("FAC", "FSO"),
     ("MD 2", "Compiladores 1"),
