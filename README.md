@@ -14,6 +14,10 @@ Conteúdo da Disciplina: Grafos<br>
 
 Este projeto tem como objetivo organizar disciplinas com base em seus pré-requisitos, gerando uma ordem válida para cursá-las ou estudá-las.
 
+## Entrega
+
+[Clique aqui para assistir ao vídeo no YouTube](https://www.youtube.com/watch?v=r-7gF64q8yQ)
+
 ## Screenshots
 
 ### Tela Inicial
