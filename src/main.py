@@ -13,6 +13,20 @@ def cria_grafo_pre_requisitos(disciplinas, pre_requisitos):
 grafo_pre_requisitos = cria_grafo_pre_requisitos(disciplinas,pre_requisitos)
 
 
+def buscar_todos_pre_requisitos(materia_alvo, grafo, visitados=None):
+    if visitados is None:
+        visitados = set()
+    pre_requisitos_encontrados = set()
+    for disciplina, sucessores in grafo.items():
+        if materia_alvo in sucessores:
+            pre_requisitos_encontrados.add(disciplina)
+            if disciplina not in visitados:
+                visitados.add(disciplina)
+                ancestrais = buscar_todos_pre_requisitos(disciplina, grafo, visitados)
+                pre_requisitos_encontrados.update(ancestrais)
+    return pre_requisitos_encontrados
+
+
 def calcular_impacto_reprovacao(materia_alvo, grafo):
     impactados = set()
 

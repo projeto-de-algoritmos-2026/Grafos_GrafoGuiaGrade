@@ -44,6 +44,7 @@ pre_requisitos = [
     ("FAC", "FSO"),
     ("MD 2", "Compiladores 1"),
     ("PI 1", "FSO"),
+    ("MDS", "IHC"),
     
     # 5º -> 6º Semestre
     ("Requisitos", "ADS"),
