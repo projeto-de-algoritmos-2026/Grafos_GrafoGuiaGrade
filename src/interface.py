@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+from main import calcular_impacto_reprovacao
 
 
 def buscar_todos_pre_requisitos(materia_alvo, grafo, visitados=None):
@@ -14,6 +15,7 @@ def buscar_todos_pre_requisitos(materia_alvo, grafo, visitados=None):
                 ancestrais = buscar_todos_pre_requisitos(disciplina, grafo, visitados)
                 pre_requisitos_encontrados.update(ancestrais)
     return pre_requisitos_encontrados
+
 
 def abrir_interface(disciplinas, grafo):
     janela = tk.Tk()
@@ -129,9 +131,42 @@ def abrir_interface(disciplinas, grafo):
     )
     btn.pack(pady=20)
 
+    def mostrar_impacto():
+        selecao = listbox.curselection()
+        if not selecao: return
+        
+        materia = listbox.get(selecao[0])
+        
+        bloqueadas = calcular_impacto_reprovacao(materia, grafo)
+        
+
+        if bloqueadas:
+            texto = f"⚠️ Se você reprovar em {materia}, as seguintes matérias serão bloqueadas:\n\n"
+
+            for b in sorted(bloqueadas):
+                texto += f"• {b}\n"
+        else:
+            texto = f"✅ Reprovar em {materia} não bloqueia outras matérias (é uma matéria terminal ou isolada)."
+
+        label_resultado.config(state=tk.NORMAL)
+        label_resultado.delete("1.0", tk.END)
+        label_resultado.insert(tk.END, texto)
+        label_resultado.config(state=tk.DISABLED)
+
+    btn_impacto = tk.Button(
+        janela, 
+        text="VER IMPACTO DE REPROVAÇÃO", 
+        command=mostrar_impacto,
+        bg="#f38ba8", 
+        fg=COR_FUNDO,
+        font=("Segoe UI", 10, "bold"),
+        padx=20,
+        pady=10,
+        borderwidth=0,
+        cursor="hand2"
+    )
+    btn_impacto.pack(pady=5)
+
     janela.mainloop()
 
 
-
-# Para rodar:
-# abrir_interface(disciplinas, grafo_pre_requisitos)

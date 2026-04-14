@@ -28,8 +28,8 @@ def dfs_visit(grafo, materia, visitados, arvore):
             dfs_visit(grafo,vizinho, visitados, arvore, )
 
 ordem_visitados, arvore_dfs = dfs(grafo_pre_requisitos)
-print("ordem de visitação dfs", ordem_visitados)
-print("arvore dfs", arvore_dfs)
+# print("ordem de visitação dfs", ordem_visitados)
+# print("arvore dfs", arvore_dfs)
 
 def detectar_ciclo(grafo):
     estados = {}
@@ -102,44 +102,20 @@ def mostrar_arvore_pre_requisitos(materia, grafo, nivel=0):
 print("\nESTRUTURA HIERÁRQUICA DE DEPENDÊNCIAS:")
 mostrar_arvore_pre_requisitos("MDS", grafo_pre_requisitos)
 
-def obter_scc(grafo):
-    """Implementa o Algoritmo de Kosaraju para encontrar SCCs."""
-    visitados = set()
-    pilha = []
 
-    def preencher_pilha(u):
-        visitados.add(u)
-        for v in grafo[u]:
-            if v not in visitados:
-                preencher_pilha(v)
-        pilha.append(u)
+def calcular_impacto_reprovacao(materia_alvo, grafo):
+    impactados = set()
 
-    for disciplina in grafo:
-        if disciplina not in visitados:
-            preencher_pilha(disciplina)
+    def explorar(u):
 
-    
-    grafo_t = transpor_grafo(grafo)
-    visitados.clear()
-    sccs = []
+        for v in grafo.get(u, []):
+            if v not in impactados:
+                impactados.add(v)
+                explorar(v)
 
-    def dfs_scc(u, componente):
-        visitados.add(u)
-        componente.append(u)
-        for v in grafo_t[u]:
-            if v not in visitados:
-                dfs_scc(v, componente)
+    explorar(materia_alvo)
+    return impactados
 
-    while pilha:
-        u = pilha.pop()
-        if u not in visitados:
-            componente_atual = []
-            dfs_scc(u, componente_atual)
-            sccs.append(componente_atual)
-    
-    return sccs
-
-    
 if __name__ == "__main__":
     
     print("\nAbrindo interface gráfica...")
