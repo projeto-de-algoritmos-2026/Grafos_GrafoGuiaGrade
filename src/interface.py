@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from main import calcular_impacto_reprovacao
+from main import buscar_todos_pre_requisitos
 
 
 def abrir_interface(disciplinas, grafo):
@@ -84,6 +85,7 @@ def abrir_interface(disciplinas, grafo):
         
         materia = listbox.get(selecao[0])
         
+        pre_requisitos = buscar_todos_pre_requisitos
         
         arvore_texto = ""
         def gerar_texto_arvore(m, g, nivel=0):
