@@ -16,11 +16,17 @@ Este projeto tem como objetivo organizar disciplinas com base em seus pré-requi
 
 ## Screenshots
 
-![Tela Inicial Imagem](imgs/tela-inicial.jpeg)
-![Pre Requisitos Imagem](imgs/pre-requisitos.jpeg)
-![Impacto Reprovação Imagem](imgs/impacto-reprovacao.jpeg)
+### Tela Inicial
 
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+![Tela Inicial Imagem](imgs/tela-inicial.jpeg)
+
+### Pre Requisitos
+
+![Pre Requisitos Imagem](imgs/pre-requisitos.jpeg)
+
+### Impacto Reprovação
+
+![Impacto Reprovação Imagem](imgs/impacto-reprovacao.jpeg)
 
 ## Instalação
 
