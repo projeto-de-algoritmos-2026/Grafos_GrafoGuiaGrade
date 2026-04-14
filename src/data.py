@@ -27,14 +27,15 @@ pre_requisitos = [
     # 2º -> 3º Semestre
     ("Cálculo 2", "Métodos Numéricos"),
     ("IAL", "TED 1"),
-    ("Desenvolvimento de Software", "OO"),
+    ("IAL", "PED 1"),
+    ("APC", "OO"),
     
     # 3º -> 4º Semestre
-    ("TED 1", "PED 1"),
+    ("TED 1", "FAC"),
     ("OO", "MDS"),
-    ("OO", "EDA 1"),
+    ("OO", "Paradigmas de Programação"),
     ("MD 1", "MD 2"),
-    ("MD 1", "EDA 1"),
+    ("APC", "EDA 1"),
     ("PED 1", "FAC"),
     
     # 4º -> 5º Semestre
@@ -43,7 +44,6 @@ pre_requisitos = [
     ("EDA 1", "EDA 2"),
     ("FAC", "FSO"),
     ("MD 2", "Compiladores 1"),
-    ("PI 1", "FSO"),
     ("MDS", "IHC"),
     
     # 5º -> 6º Semestre
@@ -51,8 +51,8 @@ pre_requisitos = [
     ("Requisitos", "Qualidade de Software 1"),
     ("SBD 1", "SBD 2"),
     ("FSO", "Redes"),
-    ("EDA 2", "PAA"),
-    ("Compiladores 1", "PAA"),
+    ("EDA 1", "PAA"),
+    ("Cálculo 1", "PAA"),
     
     # 6º -> 7º Semestre
     ("Qualidade de Software 1", "TPPE"),
