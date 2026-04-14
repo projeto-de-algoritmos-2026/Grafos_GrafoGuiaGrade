@@ -40,6 +40,9 @@ def calcular_impacto_reprovacao(materia_alvo, grafo):
     explorar(materia_alvo)
     return impactados
 
+
+# FUNÇÕES DE APRENDIZADO E PRÁTICA
+
 # def dfs(grafo):
 #     visitados = []
 #     arvore = []
